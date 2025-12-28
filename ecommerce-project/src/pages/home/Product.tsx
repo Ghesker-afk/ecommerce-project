@@ -3,7 +3,21 @@ import { useState } from "react";
 import { formatMoney } from "../../utils/money";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
 
-export function Product({ product, loadCart }) {
+type ProductProps = {
+  product: {
+    id: string;
+    image: string;
+    name: string;
+    rating: {
+      stars: number;
+      count: number;
+    };
+    priceCents: number;
+  }, 
+  loadCart: () => Promise<void>
+};
+
+export function Product({ product, loadCart }: ProductProps) {
   const [quantity, setQuantity] = useState(1);
 
   const addToCart = async () => {
@@ -14,7 +28,11 @@ export function Product({ product, loadCart }) {
     await loadCart();
   };
 
-  const selectQuantity = (event) => {
+  const selectQuantity = (event: {
+    target: {
+      value: string;
+    }
+  }) => {
     const quantitySelected = Number(event.target.value);
     setQuantity(quantitySelected);
   };
