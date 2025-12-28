@@ -4,7 +4,16 @@ import { Header } from "../../components/Header";
 import { ProductsGrid } from './ProductsGrid';
 import "./HomePage.css";
 
-export function HomePage({ cart, loadCart }) {
+type HomePageProps = {
+  cart: {
+    productId: string;
+    quantity: number;
+    deliveryOptionId: string;
+  }[],
+  loadCart: () => Promise<void>;
+};
+
+export function HomePage({ cart, loadCart }: HomePageProps) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
