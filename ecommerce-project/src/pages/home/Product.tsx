@@ -3,7 +3,7 @@ import { useState } from "react";
 import { formatMoney } from "../../utils/money";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
 
-type Product = {
+export type Product = {
   id: string;
   image: string;
   name: string;

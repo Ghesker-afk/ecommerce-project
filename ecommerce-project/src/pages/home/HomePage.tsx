@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Header } from "../../components/Header";
 import { ProductsGrid } from './ProductsGrid';
 import "./HomePage.css";
+import type { Product } from './Product';
 
 type HomePageProps = {
   cart: {
@@ -14,7 +15,7 @@ type HomePageProps = {
 };
 
 export function HomePage({ cart, loadCart }: HomePageProps) {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
     const getHomeData = async () => {
