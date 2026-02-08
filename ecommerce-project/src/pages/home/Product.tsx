@@ -3,18 +3,20 @@ import { useState } from "react";
 import { formatMoney } from "../../utils/money";
 import CheckmarkIcon from "../../assets/images/icons/checkmark.png";
 
+type Product = {
+  id: string;
+  image: string;
+  name: string;
+  rating: {
+    stars: number;
+    count: number;
+  };
+  priceCents: number;
+};
+
 type ProductProps = {
-  product: {
-    id: string;
-    image: string;
-    name: string;
-    rating: {
-      stars: number;
-      count: number;
-    };
-    priceCents: number;
-  }, 
-  loadCart: () => Promise<void>
+  product: Product; 
+  loadCart: () => Promise<void>;
 };
 
 export function Product({ product, loadCart }: ProductProps) {
