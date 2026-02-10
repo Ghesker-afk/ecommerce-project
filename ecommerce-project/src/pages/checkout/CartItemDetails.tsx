@@ -1,16 +1,19 @@
 import axios from 'axios';
 import { formatMoney } from '../../utils/money';
 
-type CartItemDetailsProps = {
-  cartItem: {
-    productId: string;
-    quantity: number;
-    product: {
-      name: string;
-      image: string;
-      priceCents: number;
-    };
+export type CartItem = {
+  productId: string;
+  quantity: number;
+  deliveryOptionId: string;
+  product: {
+    name: string;
+    image: string;
+    priceCents: number;
   };
+};
+
+type CartItemDetailsProps = {
+  cartItem: CartItem;
   loadCart: () => Promise<void>;
 };
 

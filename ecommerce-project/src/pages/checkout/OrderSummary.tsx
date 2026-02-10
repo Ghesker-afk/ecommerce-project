@@ -1,16 +1,12 @@
 import { DeliveryOptions } from './DeliveryOptions';
-import { CartItemDetails } from './CartItemDetails';
+import { CartItemDetails, type CartItem } from './CartItemDetails';
 import { DeliveryDate } from './DeliveryDate';
 
 type OrderSummaryProps = {
-  cart: {
-    productId: string;
-    quantity: number;
-    deliveryOptionId: string;
-  }[];
+  cart: CartItem[];
   deliveryOptions: {
     id: string;
-    deliveryDays: number;
+    estimatedDeliveryTimeMs: number;
     priceCents: number;
   }[];
   loadCart: () => Promise<void>
