@@ -1,7 +1,20 @@
 import axios from 'axios';
 import { formatMoney } from '../../utils/money';
 
-export function CartItemDetails({ cartItem, loadCart }) {
+type CartItemDetailsProps = {
+  cartItem: {
+    productId: string;
+    quantity: number;
+    product: {
+      name: string;
+      image: string;
+      priceCents: number;
+    };
+  };
+  loadCart: () => Promise<void>;
+};
+
+export function CartItemDetails({ cartItem, loadCart }: CartItemDetailsProps) {
   const deleteCartItem = async () => {
     await axios.delete(`/api/cart-items/${cartItem.productId}`);
     await loadCart();
