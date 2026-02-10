@@ -2,8 +2,10 @@ import { DeliveryOptions } from './DeliveryOptions';
 import { CartItemDetails, type CartItem } from './CartItemDetails';
 import { DeliveryDate } from './DeliveryDate';
 
+export type Cart = CartItem[];
+
 type OrderSummaryProps = {
-  cart: CartItem[];
+  cart: Cart;
   deliveryOptions: {
     id: string;
     estimatedDeliveryTimeMs: number;

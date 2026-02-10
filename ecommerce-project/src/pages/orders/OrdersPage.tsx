@@ -3,8 +3,13 @@ import { useState, useEffect } from "react";
 import { Header } from "../../components/Header";
 import "./OrdersPage.css";
 import { OrdersGrid } from "./OrdersGrid";
+import type { Cart } from "../checkout/OrderSummary";
 
-export function OrdersPage({ cart }) {
+type OrdersPageProp = {
+  cart: Cart;
+};
+
+export function OrdersPage({ cart }: OrdersPageProp) {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
