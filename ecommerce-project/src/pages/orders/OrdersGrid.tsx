@@ -1,6 +1,8 @@
 import { OrderHeader } from './OrderHeader';
 import { OrderDetailsGrid } from "./OrderDetailsGrid";
 
+type OrdersGridProp = Order[];
+
 export function OrdersGrid({ orders }) {
   return (
     <div className="orders-grid">
